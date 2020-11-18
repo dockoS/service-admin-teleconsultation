@@ -1,0 +1,8 @@
+{
+    "db":{
+        "dev-params": "MONGO_DEV_PARAMS",
+        "prod-params": "MONGO_PROD_PARAMS",
+        "test-params": "MONGO_TEST_PARAMS",
+        "docko-params": "MONGO_DOCKO_PARAMS"
+    }
+}
