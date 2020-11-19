@@ -117,7 +117,17 @@ exports.changerEtat=(req,res,next)=>{
         if(etat) foundObject.etat=etat
         foundObject
             .save()
-            .then(() => res.send(foundObject))
+            .then(async () =>{ 
+                if(foundObject.etat===-1){
+                    Medecin.findOneAndDelete({ _id: foundObject._id }, (err, object) => {
+                        //if (err) return res.status(500).json({ error: error });
+                        console.log("deleted");
+                        res.status(200).send(object)
+                    })
+                  }else{
+                  res.send(foundObject)
+                  }
+            })
             .catch(error => res.status(500).send(error))
     })
 }     
